@@ -6,7 +6,7 @@
 
 S.I.G.M.A. é uma aplicação de desktop avançada, escrita em Python com PySide6, que transforma a maneira como você busca, analisa e entende os arquivos em seu sistema Linux.
 
-![Screenshot do S.I.G.M.A.](https://github.com/henriquetourinho/S.I.G.M.A/blob/main/media/sigma.git?raw=true)
+![Screenshot do S.I.G.M.A.](https://github.com/henriquetourinho/S.I.G.M.A/blob/main/media/sigma.gif?raw=true)
 
 ---
 

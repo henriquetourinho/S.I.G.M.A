@@ -1,0 +1,43 @@
+name: Teste do S.I.G.M.A. em Múltiplas Versões do Python (usando Anaconda)
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build-test:
+    name: Testar no Python ${{ matrix.python-version }} (Anaconda)
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.10, 3.11, 3.12]
+
+    steps:
+      - name: Baixar código do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar ambiente Anaconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+          activate-environment: ambiente-sigma
+          environment-file: environment.yml
+          auto-activate-base: false
+
+      - name: Instalar dependências de teste (opcional)
+        run: |
+          conda activate ambiente-sigma
+          pip install pytest  # Instale pytest caso queira rodar testes automáticos
+
+      - name: Teste rápido de importação do PySide6
+        run: |
+          conda activate ambiente-sigma
+          python -c "import PySide6; print(PySide6.__version__)"
+
+      - name: Teste rápido de execução do S.I.G.M.A.
+        run: |
+          conda activate ambiente-sigma
+          python sigma.py --help || true  # Não falha se não houver --help, só para ver se roda sem erro

@@ -18,6 +18,31 @@ O projeto começou com um humilde script em Bash e, através de uma evolução c
 
 Cada funcionalidade do S.I.G.M.A. foi meticulosamente planejada e implementada para criar uma ferramenta que não apenas encontra arquivos, mas também revela a informação contida neles. Este é um projeto que reflete a paixão pela tecnologia e o compromisso de desenvolver software de alta qualidade no Brasil.
 
+---
+
+### 🚀 Instalação Rápida (.deb autossuficiente)
+
+> **Novo!** Agora o S.I.G.M.A. pode ser instalado facilmente via pacote `.deb` autossuficiente:
+>
+> - Não requer Python, PySide6 ou outras bibliotecas instaladas no sistema.
+> - O executável já traz tudo embutido, graças ao [PyInstaller](https://pyinstaller.org/).
+> - Compatível com Debian, Ubuntu e derivados.
+>
+> **Passos:**
+> 1. [Baixe o último pacote .deb na página de releases](https://github.com/henriquetourinho/S.I.G.M.A/releases).
+> 2. Instale via terminal:
+>    ```bash
+>    sudo dpkg -i sigma-deb.deb
+>    sudo apt-get install -f  # caso precise corrigir dependências
+>    ```
+> 3. Execute digitando:
+>    ```bash
+>    sigma
+>    ```
+> 4. Pronto! Não é necessário configurar ambientes Python nem instalar dependências.
+
+---
+
 ### Principais Funcionalidades
 
 * **🖥️ Interface Gráfica Avançada:**
@@ -35,6 +60,43 @@ Cada funcionalidade do S.I.G.M.A. foi meticulosamente planejada e implementada p
 * **🌐 Portabilidade e Robustez:**
     * Escrito em Python para ser compatível com diversos sistemas baseados em Debian, com tratamento de erros para garantir uma operação estável.
 
+---
+
+### Instalação e Uso Técnico (Método Tradicional)
+
+> Se preferir instalar pelo código-fonte, siga o passo a passo abaixo:
+
+1.  **Instale as dependências base do sistema:**
+    ```bash
+    sudo apt-get update
+    sudo apt-get install git python3-venv -y
+    ```
+
+2.  **Clone o repositório do S.I.G.M.A.:**
+    ```bash
+    git clone https://github.com/henriquetourinho/S.I.G.M.A.git
+    cd S.I.G.M.A
+    ```
+
+3.  **Crie e ative o Ambiente Virtual:**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+4.  **Instale as Dependências da Interface Gráfica:**
+    ```bash
+    sudo apt-get install python3-pyside6 -y
+    ```
+
+5.  **Execute o S.I.G.M.A.:**
+    ```bash
+    python3 sigma.py
+    ```
+    *Nota: É recomendado executar como usuário normal, não como root.*
+
+---
+
 ### Visão de Futuro (Roadmap)
 
 O S.I.G.M.A. foi projetado para ser uma plataforma em constante evolução. As próximas funcionalidades planejadas incluem:
@@ -44,61 +106,28 @@ O S.I.G.M.A. foi projetado para ser uma plataforma em constante evolução. As p
 * **Detecção de Duplicatas Semânticas:** Uso de IA para encontrar arquivos com conteúdo similar, não apenas idênticos.
 * **Indexação de Arquivos:** Criação de um índice em SQLite para buscas praticamente instantâneas.
 
+---
+
 ### Tech Stack
 
 * **Linguagem:** Python 3
 * **Interface Gráfica:** PySide6
 * **Bibliotecas Nativas Principais:** `os`, `stat`, `threading`, `pwd`, `datetime`.
 
+---
+
 ### Requisitos
 
 * **Sistema Operacional:** Debian ou derivados (Ubuntu, Linux Mint, etc.).
-* **Dependências de Sistema:** `git`, `python3`, `python3-venv` e os pacotes do `PySide6`.
+* **Dependências de Sistema:** `git`, `python3`, `python3-venv` e os pacotes do `PySide6` (apenas para instalação tradicional).
 
-### Instalação e Uso Técnico
-
-Este guia detalha a instalação em um ambiente limpo, usando as melhores práticas com um ambiente virtual.
-
-1.  **Instale as dependências base do sistema:**
-    Abra o terminal e garanta que `git` e `python3-venv` (para criar ambientes virtuais) estejam instalados.
-    ```bash
-    sudo apt-get update
-    sudo apt-get install git python3-venv -y
-    ```
-
-2.  **Clone o repositório do S.I.G.M.A.:**
-    ```bash
-    git clone [https://github.com/henriquetourinho/S.I.G.M.A.git](https://github.com/henriquetourinho/S.I.G.M.A.git)
-    cd S.I.G.M.A
-    ```
-
-3.  **Crie e ative o Ambiente Virtual:**
-    É crucial isolar as dependências do projeto.
-    ```bash
-    # Crie o ambiente na pasta 'venv'
-    python3 -m venv venv
-
-    # Ative o ambiente
-    source venv/bin/activate
-    ```
-    *Seu prompt do terminal agora deve começar com `(venv)`.*
-
-4.  **Instale as Dependências da Interface Gráfica:**
-    Em sistemas Debian/Ubuntu, a forma mais estável de instalar o PySide6 é através do `apt`, pois ele lida com todas as dependências complexas do sistema.
-    ```bash
-    sudo apt-get install python3-pyside6 -y
-    ```
-
-5.  **Execute o S.I.G.M.A.:**
-    Com o ambiente virtual ativo, execute o script principal.
-    ```bash
-    python3 sigma.py
-    ```
-    *Nota: O código inclui uma diretiva (`--no-sandbox`) para compatibilidade com ambientes (como contêineres Docker) onde o programa pode ser executado como `root`. Em um desktop padrão, recomenda-se executar como um usuário normal.*
+---
 
 ### Licença
 
 Este projeto é distribuído sob a **GPL-3.0 license**. Veja o arquivo `LICENSE` para mais detalhes.
+
+---
 
 ## 🙋‍♂️ Desenvolvido por
 

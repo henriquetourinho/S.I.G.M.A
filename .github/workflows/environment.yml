@@ -6,5 +6,4 @@ dependencies:
   - python=3.11
   - pyside6
   - pip
-  # Adicione outras dependências do seu projeto aqui, se necessário
-  # Exemplo: - pytest
+  # Adicione aqui outras dependências se necessário
